@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "西交大本科科研机会发现结果",
+  "description": "Skill 内部结果契约。先写这份 JSON，再从同一份 JSON 生成对话列表、CSV 和 DOCX。",
+  "type": "object",
+  "required": ["query", "results"],
+  "properties": {
+    "query": {
+      "type": "object",
+      "required": ["mode", "checked_at", "coverage"],
+      "properties": {
+        "mode": {
+          "enum": ["information", "matching"],
+          "description": "information=信息展示；matching=匹配模式"
+        },
+        "text": {
+          "type": "string",
+          "description": "学生原始请求，便于复核本轮是否理解正确"
+        },
+        "conditions": {
+          "type": "object",
+          "description": "本轮实际使用的条件；键名可扩展，但方向/年级/专业/时间/校籍应优先使用固定键",
+          "additionalProperties": true
+        },
+        "coverage": {
+          "type": "object",
+          "required": ["statement"],
+          "properties": {
+            "scope": {"type": "string"},
+            "discovered": {"type": "integer", "minimum": 0},
+            "read_in_depth": {"type": "integer", "minimum": 0},
+            "verified": {"type": "integer", "minimum": 0},
+            "failed_pages": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "stop_reason": {"type": "string"},
+            "statement": {
+              "type": "string",
+              "minLength": 1,
+              "description": "面向学生展示的实际覆盖说明，不能声称未遍历的目录已查全"
+            }
+          }
+        },
+        "checked_at": {
+          "type": "string",
+          "description": "本轮核查日期，建议 YYYY-MM-DD"
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "description": "零个结果合法；零结果时必须为空数组，不得用相似候选填充",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "college",
+          "direction",
+          "undergrad_statement",
+          "conditions",
+          "recency",
+          "unknowns",
+          "sources",
+          "group"
+        ],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string", "minLength": 1},
+          "college": {"type": "string", "minLength": 1},
+          "lab": {"type": "string"},
+          "title": {"type": "string"},
+          "direction": {
+            "type": "string",
+            "minLength": 1,
+            "description": "可归属到该教师/团队的 research direction；不能只写学生会用的工具"
+          },
+          "topic": {
+            "type": "string",
+            "description": "具体课题或本轮可说的研究主题；未知时写待确认"
+          },
+          "undergrad_statement": {
+            "type": "string",
+            "minLength": 1,
+            "description": "公开信息对本科生参与的表述；未找到时写明未找到，不要写推断"
+          },
+          "conditions": {
+            "type": "object",
+            "required": ["direction", "undergrad", "grade", "school", "time"],
+            "properties": {
+              "direction": {"$ref": "#/$defs/condition"},
+              "undergrad": {"$ref": "#/$defs/condition"},
+              "grade": {"$ref": "#/$defs/condition"},
+              "school": {"$ref": "#/$defs/condition"},
+              "time": {"$ref": "#/$defs/condition"}
+            }
+          },
+          "recency": {"$ref": "#/$defs/recency"},
+          "unknowns": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "仍需学生确认或继续核验的条件"
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"$ref": "#/$defs/source"}
+          },
+          "group": {
+            "enum": ["confirmed", "pending", "lead"],
+            "description": "confirmed=公开依据满足本轮硬条件；pending=方向有依据但资格/时效未知；lead=身份、归属或来源待核实"
+          },
+          "fit_notes": {
+            "type": "string",
+            "description": "仅匹配模式填写；信息展示模式留空或写中性事实"
+          },
+          "recommendation": {
+            "type": ["string", "null"],
+            "description": "仅匹配模式且有区分依据时填写"
+          },
+          "notes": {"type": "string"},
+          "checked_at": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "condition": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": ["meets", "conflicts", "unknown"],
+          "description": "meets=明确满足；conflicts=明确冲突；unknown=未说明"
+        },
+        "quote": {
+          "type": ["string", "null"],
+          "description": "支撑该判断的原句；unknown 时为 null"
+        },
+        "source": {
+          "type": ["string", "null"],
+          "description": "原句所在的直达页面；unknown 时为 null"
+        },
+        "published_at": {
+          "type": ["string", "null"]
+        },
+        "checked_at": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "recency": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": [
+            "deadline_open",
+            "long_term",
+            "posted_quota_tbd",
+            "deadline_expired",
+            "none_found"
+          ],
+          "description": "deadline_open=明确有效期且未截止；long_term=长期接收；posted_quota_tbd=曾发布但当前名额待确认；deadline_expired=已截止；none_found=未找到本科生招募信息"
+        },
+        "quote": {"type": ["string", "null"]},
+        "source": {"type": ["string", "null"]},
+        "published_at": {"type": ["string", "null"]},
+        "checked_at": {"type": ["string", "null"]}
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["label", "url"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "minLength": 1},
+        "published_at": {"type": ["string", "null"]},
+        "checked_at": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
