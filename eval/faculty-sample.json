@@ -1,0 +1,1109 @@
+{
+  "checked_at": "2026-11-27",
+  "college": "计算机科学与技术学院",
+  "teachers": [
+    {
+      "order": 1,
+      "name": "安健",
+      "title": "研究员",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/anjian/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/anjian/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/anjian/zh_CN/article/284370/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "主要研究方向：物联网与工业互联网、群智计算、区块链与隐私安全等",
+        "source": "https://gr.xjtu.edu.cn/anjian/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 2,
+      "name": "安文斌",
+      "title": "助理教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/anwenbin/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/anwenbin/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/anwenbin/zh_CN/article/1040054/list/index.htm",
+        "https://gr.xjtu.edu.cn/anwenbin/zh_CN/zsxx/1040051/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "研究方向包括 多模态大模型、 弱监督学习、自然语言处理以及智慧教育。",
+        "source": "https://gr.xjtu.edu.cn/anwenbin/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "招生信息页仅列“计算机科学与技术学院,计算机技术（专硕）,2027”，未提本科生。"
+    },
+    {
+      "order": 3,
+      "name": "鲍军鹏",
+      "title": "副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/baojp/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/baojp/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/baojp/zh_CN/article/256691/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "主要研究方向为：人工智能、专家系统、机器学习和文本挖掘。",
+        "source": "https://gr.xjtu.edu.cn/baojp/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 4,
+      "name": "薄钧戈",
+      "title": "高级工程师",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/bojunge/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/bojunge/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/bojunge/zh_CN/article/286743/list/index.htm"
+      ],
+      "direction": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "主页仅有联系方式，未展示研究方向或招募信息。"
+    },
+    {
+      "order": 5,
+      "name": "曹相湧",
+      "title": "长聘副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/caoxiangyong/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/caoxiangyong/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/caoxiangyong/zh_CN/article/314051/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "主要从事机器学习、计算机视觉、底层图像处理、遥感图像解译、生成式大模型、智能体、空间智能等方向研究。",
+        "source": "https://gr.xjtu.edu.cn/caoxiangyong/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "accepted",
+        "quote": "欢迎本科生联系科研训练，每年招收（学/专）硕士3-4名，博士1-2名，欢迎联系！",
+        "source": "https://gr.xjtu.edu.cn/caoxiangyong/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "posted_quota_tbd",
+        "quote": "欢迎本科生联系科研训练，每年招收（学/专）硕士3-4名，博士1-2名，欢迎联系！",
+        "source": "https://gr.xjtu.edu.cn/caoxiangyong/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 6,
+      "name": "陈衡",
+      "title": "副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/hengchen/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/hengchen/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/hengchen/zh_CN/article/260368/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "主要研究方向：计算机体系结构，机器学习，高性能计算，高性能存储。",
+        "source": "https://gr.xjtu.edu.cn/hengchen/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "招生名额仅列硕士研究生2~3名、博士研究生1名，并要求“拿到了计算机学院的录取名额”。"
+    },
+    {
+      "order": 7,
+      "name": "陈龙",
+      "title": "工程师",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/longchen/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/longchen/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/longchen/zh_CN/article/290842/list/index.htm"
+      ],
+      "direction": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "主页“著作成果”“科研项目”均为“暂未填写”。"
+    },
+    {
+      "order": 8,
+      "name": "陈妍",
+      "title": "副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/chenyan/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/chenyan/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/chenyan/zh_CN/article/255084/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "Research areas：Education Big Data Mining；Smart Education Support Technology",
+        "source": "https://gr.xjtu.edu.cn/chenyan/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 9,
+      "name": "仇国巍",
+      "title": "副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/qwqiu/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/qwqiu/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/qwqiu/zh_CN/article/259970/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "My research interests focus on algorithms related to information security and data mining.",
+        "source": "https://gr.xjtu.edu.cn/qwqiu/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 10,
+      "name": "崔舒宁",
+      "title": "副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/veini/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/veini/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/veini/zh_CN/article/260072/list/index.htm"
+      ],
+      "direction": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "主页“著作成果”“科研项目”均为“暂未填写”。"
+    },
+    {
+      "order": 11,
+      "name": "戴慧珺",
+      "title": "工程师",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/daihuijun/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/daihuijun/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/daihuijun/zh_CN/article/479282/list/index.htm"
+      ],
+      "direction": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "主页“著作成果”“科研项目”均为“暂未填写”。"
+    },
+    {
+      "order": 12,
+      "name": "邓辉琦",
+      "title": "助理教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/denghq7/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/denghq7/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/denghq7/zh_CN/article/308089/list/index.htm",
+        "https://gr.xjtu.edu.cn/denghq7/zh_CN/article/308089/content/17137.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "研究兴趣：（i）大模型与智能体可信安全；（ii）大模型交叉应用",
+        "source": "https://gr.xjtu.edu.cn/denghq7/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "accepted",
+        "quote": "长期招收硕士生、本科生：如果你对大模型、智能体、可信人工智能及其交叉应用感兴趣，具备较强的学习能力、自我驱动力和科研热情，且编程能力/数学基础突出，欢迎联系我们。",
+        "source": "https://gr.xjtu.edu.cn/denghq7/zh_CN/article/308089/content/17137.htm",
+        "published_at": "2025-04-08",
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "long_term",
+        "quote": "长期招收硕士生、本科生",
+        "source": "https://gr.xjtu.edu.cn/denghq7/zh_CN/article/308089/content/17137.htm",
+        "published_at": "2025-04-08",
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 13,
+      "name": "丁菡",
+      "title": "教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/dinghan/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/dinghan/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/dinghan/zh_CN/article/336197/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "Research Interests：IoT + AI Applications；Human-Centric Smart Sensing；RFID Systems",
+        "source": "https://gr.xjtu.edu.cn/dinghan/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "只写“looking for self-motivated master/Ph.D. students”，未提本科生。"
+    },
+    {
+      "order": 14,
+      "name": "董小社",
+      "title": "教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/xsdong/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/xsdong/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/xsdong/zh_CN/article/242400/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "研究领域：高性能计算机体系结构、高性能计算、分布式存储系统、云计算和大数据处理、AI 并行算法优化等",
+        "source": "https://gr.xjtu.edu.cn/xsdong/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 15,
+      "name": "龚铁梁",
+      "title": "副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/gongtl/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/gongtl/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/gongtl/zh_CN/article/504685/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "主要研究方向为机器学习理论与方法，并在持续学习、迁移学习和可信医疗人工智能等方向开展研究。",
+        "source": "https://gr.xjtu.edu.cn/gongtl/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 16,
+      "name": "桂小林",
+      "title": "教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/xlgui/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/xlgui/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/xlgui/zh_CN/zdylm/993621/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "主要研究方向：1. 网络与服务计算（HPC、Grid、Cloud、P2P、MEC等）；2. 智能物联网及其应用（物联网、电力物联网、机器学习等）；3. 信息安全与隐私保护（新型加密、联邦学习、多方安全计算、入侵检测等）。",
+        "source": "https://gr.xjtu.edu.cn/xlgui/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "主页没有“我的新闻”入口；已查“科研方向介绍”页（内容为空）。"
+    },
+    {
+      "order": 17,
+      "name": "何晖",
+      "title": "高级工程师",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/huihe/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/huihe/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/huihe/zh_CN/article/263445/list/index.htm"
+      ],
+      "direction": {
+        "status": "stated",
+        "quote": "研究方向为系统软件、人工智能。",
+        "source": "https://gr.xjtu.edu.cn/huihe/zh_CN/index.htm",
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": ""
+    },
+    {
+      "order": 18,
+      "name": "惠维",
+      "title": "教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/xjtuxi/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/xjtuxi/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/xjtuxi/zh_CN/article/341282/list/index.htm"
+      ],
+      "direction": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "主页“著作成果”“科研项目”均为“暂未填写”。"
+    },
+    {
+      "order": 19,
+      "name": "康宁",
+      "title": "助理教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/kangning/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/kangning/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/kangning/zh_CN/article/1101428/list/index.htm",
+        "https://gr.xjtu.edu.cn/kangning/zh_CN/zsxx/1101425/list/index.htm"
+      ],
+      "direction": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "招生信息页为 0 条；研究方向栏为“暂未填写”。"
+    },
+    {
+      "order": 20,
+      "name": "赖欣",
+      "title": "副教授",
+      "college": "计算机科学与技术学院",
+      "homepage": "https://gr.xjtu.edu.cn/laixin/zh_CN/index.htm",
+      "checked_at": "2026-11-27",
+      "checked_pages": [
+        "https://gr.xjtu.edu.cn/laixin/zh_CN/index.htm",
+        "https://gr.xjtu.edu.cn/laixin/zh_CN/article/330288/list/index.htm"
+      ],
+      "direction": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "undergrad": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "grade": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "school": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "time": {
+        "status": "not_stated",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "recency": {
+        "status": "none_found",
+        "quote": null,
+        "source": null,
+        "published_at": null,
+        "checked_at": "2026-11-27"
+      },
+      "notes": "主页“著作成果”“科研项目”均为“暂未填写”。"
+    }
+  ]
+}
