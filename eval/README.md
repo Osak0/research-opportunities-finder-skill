@@ -9,7 +9,7 @@
 | `sample-teachers.json` | 20 人选样名册：顺序、姓名、职称、主页、选样规则 |
 | `faculty-sample.json` | 20 人逐页标注：方向、本科生资格、年级、校籍、时间、时效、原文与来源 |
 | `development-cases.md` | 张妮、曹建福、刘龙军 3 个页面阅读案例，以及 3 类归属验收情形 |
-| `scenarios.md` | S1–S20 对话验收场景（Task 4 交付） |
+| `scenarios.md` | S1–S20 对话验收场景与预期行为 |
 
 ## 选样规则
 
