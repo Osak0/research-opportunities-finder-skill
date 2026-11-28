@@ -57,7 +57,7 @@
   - CLI：`python scripts/export_results.py <results.json> --out-dir <dir> [--formats csv,docx]`
   - 结果 JSON 顶层：`query`（`mode`、`conditions`、`coverage`、`checked_at`）与 `results`（数组）。每条结果至少含 `name`、`college`、`direction`、`undergrad_statement`、`conditions`、`unknowns`、`sources`、`group`。
 
-- [ ] **Step 1: 写失败测试（CSV 字段与转义）**
+- [x] **Step 1: 写失败测试（CSV 字段与转义）**
 
 ```python
 def test_csv_contains_headers_and_escapes(self):
@@ -77,12 +77,12 @@ def test_csv_contains_headers_and_escapes(self):
     self.assertIn('https://gr.xjtu.edu.cn/example/zh_CN/index.htm', rows[0]['sources'])
 ```
 
-- [ ] **Step 2: 运行测试确认失败**
+- [x] **Step 2: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_export_results -v`
 Expected: FAIL，`ModuleNotFoundError` 或 `ImportError`（`scripts.export_results` 尚不存在）。
 
-- [ ] **Step 3: 写失败测试（DOCX 包、超链接与空结果）**
+- [x] **Step 3: 写失败测试（DOCX 包、超链接与空结果）**
 
 ```python
 def test_docx_contains_hyperlinks_and_valid_package(self):
@@ -104,12 +104,12 @@ def test_empty_results_export_is_valid(self):
     self.assertIn('本轮没有明确匹配', doc)
 ```
 
-- [ ] **Step 4: 运行测试确认失败**
+- [x] **Step 4: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_export_results -v`
 Expected: FAIL，`write_docx`/`write_csv` 不存在。
 
-- [ ] **Step 5: 写失败测试（校验与格式一致性）**
+- [x] **Step 5: 写失败测试（校验与格式一致性）**
 
 ```python
 def test_validation_rejects_result_without_source(self):
@@ -127,12 +127,12 @@ def test_csv_and_docx_export_same_result_set(self):
     self.assertTrue(all(name in doc for name in csv_names))
 ```
 
-- [ ] **Step 6: 运行测试确认失败**
+- [x] **Step 6: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_export_results -v`
 Expected: FAIL，`validate_results` 不存在或未拒绝空来源。
 
-- [ ] **Step 7: 实现最小导出器**
+- [x] **Step 7: 实现最小导出器**
 
 要求：
 - `validate_results` 检查 `results` 为数组、每条有非空 `name`、`sources` 为非空数组且每项有 `label`/`url`；空 `results` 合法。
@@ -140,21 +140,21 @@ Expected: FAIL，`validate_results` 不存在或未拒绝空来源。
 - DOCX 用 `zipfile` 手写 `[Content_Types].xml`、`_rels/.rels`、`word/document.xml`、`word/_rels/document.xml.rels`；正文含标题、查询信息、每条结果字段、来源超链接、空结果提示；XML 转义；中文字体 `Microsoft YaHei`。
 - CLI 默认输出 `results.csv` 与 `results.docx` 到 `--out-dir`（默认当前目录）。
 
-- [ ] **Step 8: 运行测试确认通过**
+- [x] **Step 8: 运行测试确认通过**
 
 Run: `python -m unittest tests.test_export_results -v`
 Expected: PASS（全部用例）。
 
-- [ ] **Step 9: 写 JSON Schema 与示例结果**
+- [x] **Step 9: 写 JSON Schema 与示例结果**
 
 `assets/result.schema.json` 覆盖 `query`/`results`、`group` 枚举（`confirmed`/`pending`/`lead`）、`conditions` 对象和 `sources` 数组。`assets/example-result.json` 含 1 条明确匹配 + 1 条待核实线索，字段与导出器一致。
 
-- [ ] **Step 10: 用示例结果跑通 CLI**
+- [x] **Step 10: 用示例结果跑通 CLI**
 
 Run: `python scripts/export_results.py assets/example-result.json --out-dir .tmp-export --formats csv,docx`
 Expected: 生成 `.tmp-export/results.csv` 与 `.tmp-export/results.docx`，命令退出码 0。
 
-- [ ] **Step 11: 提交**
+- [x] **Step 11: 提交**
 
 ```bash
 git add assets/result.schema.json assets/example-result.json scripts/export_results.py tests/test_export_results.py
@@ -177,7 +177,7 @@ git commit -m "feat: add result contract and csv/docx export"
 - Consumes: Task 1 的 `scripts/export_results.py` 与结果 JSON 字段。
 - Produces: 可被宿主加载的 `SKILL.md`（frontmatter `name: xjtu-research-opportunities`）；三份 reference 的稳定文件名；README 的安装与调用说明。
 
-- [ ] **Step 1: 写失败测试（文件与 frontmatter）**
+- [x] **Step 1: 写失败测试（文件与 frontmatter）**
 
 ```python
 def test_skill_frontmatter_and_references_exist(self):
@@ -189,22 +189,22 @@ def test_skill_frontmatter_and_references_exist(self):
         self.assertTrue((ROOT / rel).is_file(), rel)
 ```
 
-- [ ] **Step 2: 运行测试确认失败**
+- [x] **Step 2: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_skill_contract -v`
 Expected: FAIL，`SKILL.md` 不存在。
 
-- [ ] **Step 3: 写失败测试（运行规则清单）**
+- [x] **Step 3: 写失败测试（运行规则清单）**
 
 测试逐项断言 `SKILL.md` 含以下规则关键词/句子：
 `信息展示`、`匹配模式`、`先确定交互模式`、`明确满足`、`明确冲突`、`未说明`、`长期接收`、`曾发布-当前名额待确认`、`已截止`、`待核实线索`、`零个明确匹配`、`CSV`、`.docx`、`同一份结果`、`20 位候选`、`校内`、`企业自行招募`、`合作项目`、`来源`、`核查日期`、`scripts/export_results.py`。
 
-- [ ] **Step 4: 运行测试确认失败**
+- [x] **Step 4: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_skill_contract -v`
 Expected: FAIL，缺少规则条目。
 
-- [ ] **Step 5: 写 `SKILL.md`**
+- [x] **Step 5: 写 `SKILL.md`**
 
 结构固定为：
 1. 适用范围与默认身份（含排除项、归属规则）。
@@ -217,22 +217,22 @@ Expected: FAIL，缺少规则条目。
 8. 新要求、限定候选、查全目录、零结果的处理。
 9. 禁止事项：不伪造、不用搜索摘要当原文、不把旧公告当当前名额。
 
-- [ ] **Step 6: 写三份 reference**
+- [x] **Step 6: 写三份 reference**
 
 - `xjtu-search-playbook.md`：门户入口、CS/AI/自动化/软件/网安等学院 id、教师页栏目、分页限制、关键词与同义词、双路径、预算与覆盖记录、已知不可达页面的处理。
 - `evidence-rules.md`：E1/E2/待核实证据等级；方向/本科生/年级/校籍/时间的判定；原文引用、发布日期、核查日期；时效五类；去重与归属；冲突证据。
 - `result-format.md`：对话列表模板（信息展示/匹配模式）、待确认项、覆盖说明、JSON 字段表、CSV/DOCX 列、导出命令。
 
-- [ ] **Step 7: 写 `README.md`**
+- [x] **Step 7: 写 `README.md`**
 
 包含：Skill 是什么、首版范围、安装位置、调用示例（信息展示/匹配/比较/导出）、运行测试命令、样本与验收文件位置、已知限制。
 
-- [ ] **Step 8: 运行测试确认通过**
+- [x] **Step 8: 运行测试确认通过**
 
 Run: `python -m unittest tests.test_skill_contract -v`
 Expected: PASS。
 
-- [ ] **Step 9: 提交**
+- [x] **Step 9: 提交**
 
 ```bash
 git add SKILL.md README.md references tests/test_skill_contract.py
@@ -254,7 +254,7 @@ git commit -m "feat: add skill workflow and evidence rules"
 - Consumes: Task 2 的字段状态与时效分类。
 - Produces: 20 条固定样本（每条含 `order`、`name`、`title`、`college`、`homepage`、`checked_at`、`checked_pages`、`direction`、`undergrad`、`grade`、`school`、`time`、`recency`、`unknowns`）；3 个跨院系案例。
 
-- [ ] **Step 1: 写失败测试（样本结构与多样性）**
+- [x] **Step 1: 写失败测试（样本结构与多样性）**
 
 ```python
 def test_sample_has_20_unique_teachers(self):
@@ -269,12 +269,12 @@ def test_sample_has_20_unique_teachers(self):
             self.assertIn(t[field]['status'], ALLOWED[field])
 ```
 
-- [ ] **Step 2: 运行测试确认失败**
+- [x] **Step 2: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_eval_sample -v`
 Expected: FAIL，`eval/faculty-sample.json` 不存在。
 
-- [ ] **Step 3: 写失败测试（证据与多样性）**
+- [x] **Step 3: 写失败测试（证据与多样性）**
 
 断言：
 - 至少 2 条 `undergrad.status == 'accepted'`，且每条有 `quote` 与 `source`。
@@ -284,16 +284,16 @@ Expected: FAIL，`eval/faculty-sample.json` 不存在。
 - 每条 `status != 'not_stated'`/`none_found` 的字段必须有非空 `quote` 与 `source`。
 - `development-cases.md` 含张妮、曹建福、刘龙军姓名及关键原文（`大二、大三`、`8-10小时`、`常年招收`）。
 
-- [ ] **Step 4: 运行测试确认失败**
+- [x] **Step 4: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_eval_sample -v`
 Expected: FAIL，缺少 `eval/development-cases.md` 或字段。
 
-- [ ] **Step 5: 固定 20 人名单**
+- [x] **Step 5: 固定 20 人名单**
 
 从 `https://gr.xjtu.edu.cn/units_teacherlist.jsp?urltype=tsites.CollegeTeacherList&wbtreeid=1021&st=0&id=1025&lang=zh_CN` 的默认顺序取前 20 位：安健、安文斌、鲍军鹏、薄钧戈、曹相湧、陈衡、陈龙、陈妍、仇国巍、崔舒宁、戴慧珺、邓辉琦、丁菡、董小社、龚铁梁、桂小林、何晖、惠维、康宁、赖欣。写入 `eval/sample-teachers.json`，记录选样规则与核查日期 2026-11-27。
 
-- [ ] **Step 6: 逐页标注并写 `eval/faculty-sample.json`**
+- [x] **Step 6: 逐页标注并写 `eval/faculty-sample.json`**
 
 按 `references/evidence-rules.md` 标注。已核实的开发事实：
 - 曹相湧首页：“欢迎本科生联系科研训练，每年招收（学/专）硕士3-4名，博士1-2名，欢迎联系！”→ `undergrad.accepted`，`recency.posted_quota_tbd`。
@@ -302,23 +302,23 @@ Expected: FAIL，缺少 `eval/development-cases.md` 或字段。
 - 其余无招募信息的教师：`undergrad.not_stated`、`recency.none_found`，保留方向信息或标 `direction.not_stated`。
 - 所有 `none_found` 条目的 `checked_pages` 至少含首页与“我的新闻”列表。
 
-- [ ] **Step 7: 写 `eval/development-cases.md`**
+- [x] **Step 7: 写 `eval/development-cases.md`**
 
 张妮（CS）：`https://gr.xjtu.edu.cn/nizhang/zh_CN/zdylm/1090690/list/index.htm`，原文含“科研实习生：欢迎大二、大三有余力的本科生加入”“保证每周至少 1 次一对一或小组科研讨论”“持续合作 6 个月以上”；时效标 `posted_quota_tbd`（无截止日）。
 曹建福（自动化）：`https://gr.xjtu.edu.cn/cjf/zh_CN/article/256041/content/42033.htm`，发布时间 2026-08-28，原文含“招聘3-5名优秀本科生”“每周能来项目组8-10小时”；时效标 `posted_quota_tbd`。
 刘龙军（人工智能）：`https://gr.xjtu.edu.cn/liulongjun/zh_CN/index.htm`，原文含“常年招收……本科生来课题组科研实习”；时效标 `long_term`。
 另列三类归属场景（校内团队合作项目=纳入并注明合作方/地点；教师转发企业岗位=排除；归属不明联合项目=待核实线索）。
 
-- [ ] **Step 8: 写 `eval/README.md`**
+- [x] **Step 8: 写 `eval/README.md`**
 
 说明样本用途、选样规则、核查日期、字段含义、如何复测、如何新增样本；明确样本只描述本轮覆盖，不用于对外宣传。
 
-- [ ] **Step 9: 运行测试确认通过**
+- [x] **Step 9: 运行测试确认通过**
 
 Run: `python -m unittest tests.test_eval_sample -v`
 Expected: PASS。
 
-- [ ] **Step 10: 提交**
+- [x] **Step 10: 提交**
 
 ```bash
 git add eval tests/test_eval_sample.py
@@ -338,7 +338,7 @@ git commit -m "test: add 20-teacher eval sample and development cases"
 - Consumes: Task 2 的规则与 Task 3 的样本。
 - Produces: S1–S20 场景表；README 的“验收场景”和“已知限制”段落。
 
-- [ ] **Step 1: 写失败测试（场景覆盖）**
+- [x] **Step 1: 写失败测试（场景覆盖）**
 
 ```python
 REQUIRED = ['S1', 'S2', ..., 'S20']
@@ -350,31 +350,31 @@ def test_scenarios_cover_required_cases(self):
         self.assertIn(phrase, text)
 ```
 
-- [ ] **Step 2: 运行测试确认失败**
+- [x] **Step 2: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_scenarios -v`
 Expected: FAIL，`eval/scenarios.md` 不存在。
 
-- [ ] **Step 3: 写 S1–S20 场景**
+- [x] **Step 3: 写 S1–S20 场景**
 
 每条含：学生输入（自然语言）、预期模式、预期检索/核验行为、预期输出、不得出现的行为。必须覆盖：
 S1 模式不明只问模式；S2 信息展示中性列表；S3 匹配模式分组与推荐；S4 跳过偏好后比较/并列；S5 严格条件零结果；S6 只看已确认资格；S7 无截止日公告；S8 过期公告；S9 页面打不开/仅截图；S10 追加条件重搜；S11 限定候选比较；S12 只换格式；S13 跨校请求；S14 教师转发企业岗位；S15 校内团队合作项目；S16 归属不明联合项目；S17 查全有限目录；S18 探索方向 3–5 个；S19 零结果表述；S20 新搜索发现旧名单外候选。
 
-- [ ] **Step 4: 运行测试确认失败**
+- [x] **Step 4: 运行测试确认失败**
 
 Run: `python -m unittest tests.test_scenarios -v`
 Expected: FAIL，缺少场景或关键词。
 
-- [ ] **Step 5: 更新 README**
+- [x] **Step 5: 更新 README**
 
 增加“如何验收”一节：运行全部测试、用 3 个开发案例做页面阅读测试、用 S1–S20 做对话走查、记录实际覆盖和误判；增加“已知限制”：无跨校、无登录、无自动全目录遍历、样本仅 20 人、真实学生试用待做。
 
-- [ ] **Step 6: 运行全部测试确认通过**
+- [x] **Step 6: 运行全部测试确认通过**
 
 Run: `python -m unittest discover -s tests -v`
 Expected: PASS（Task 1–4 全部用例）。
 
-- [ ] **Step 7: 提交**
+- [x] **Step 7: 提交**
 
 ```bash
 git add eval/scenarios.md README.md tests/test_scenarios.py

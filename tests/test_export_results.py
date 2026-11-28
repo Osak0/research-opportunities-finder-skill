@@ -129,7 +129,8 @@ class ExportTest(unittest.TestCase):
         self.assertEqual("多模态\n大模型", rows[0]["direction"])
         self.assertEqual("年级要求；每周投入时间", rows[0]["unknowns"])
         self.assertIn(EXAMPLE_URL, rows[0]["sources"])
-        self.assertEqual("information", rows[0]["query_mode"])
+        self.assertEqual("信息展示", rows[0]["query_mode"])
+        self.assertEqual("", rows[0]["recommendation"])
         self.assertIn("未遍历全目录", rows[0]["coverage_statement"])
 
     def test_docx_contains_hyperlinks_and_valid_package(self):
@@ -144,8 +145,33 @@ class ExportTest(unittest.TestCase):
             rels = z.read("word/_rels/document.xml.rels").decode("utf-8")
         self.assertIn("张三", doc)
         self.assertIn("多模态", doc)
+        self.assertIn("检索条件：研究方向：计算机视觉", doc)
+        self.assertIn("研究方向：明确满足", doc)
+        self.assertIn("本科生资格：明确满足", doc)
         self.assertIn("w:hyperlink", doc)
         self.assertIn(f'Target="{EXAMPLE_URL}"', rels)
+
+    def test_recommendation_is_exported(self):
+        data = make_result()
+        data["results"][0]["recommendation"] = "优先了解：方向直接相关。"
+        ex.write_csv(data, str(self.csv_path))
+        ex.write_docx(data, str(self.docx_path))
+        with open(self.csv_path, encoding="utf-8-sig", newline="") as f:
+            row = next(csv.DictReader(f))
+        with zipfile.ZipFile(self.docx_path) as z:
+            doc = z.read("word/document.xml").decode("utf-8")
+        self.assertEqual("优先了解：方向直接相关。", row["recommendation"])
+        self.assertIn("推荐：", doc)
+        self.assertIn("优先了解：方向直接相关。", doc)
+
+    def test_docx_omits_null_optional_values(self):
+        data = make_result()
+        data["query"]["conditions"]["grade"] = None
+        data["results"][0]["notes"] = None
+        ex.write_docx(data, str(self.docx_path))
+        with zipfile.ZipFile(self.docx_path) as z:
+            doc = z.read("word/document.xml").decode("utf-8")
+        self.assertNotIn("None", doc)
 
     def test_same_result_set_in_csv_and_docx(self):
         second = make_result(name="李四")["results"][0]
@@ -190,6 +216,78 @@ class ExportTest(unittest.TestCase):
             doc = z.read("word/document.xml").decode("utf-8")
         self.assertIn("本轮没有明确匹配", doc)
         self.assertIn("未遍历全目录", doc)
+
+    def test_validation_rejects_confirmed_with_conflicting_condition(self):
+        data = make_result()
+        data["results"][0]["conditions"]["direction"]["status"] = "conflicts"
+        with self.assertRaisesRegex(ValueError, "confirmed"):
+            ex.validate_results(data)
+
+    def test_validation_rejects_confirmed_with_non_current_recency(self):
+        for status in ("deadline_expired", "none_found"):
+            with self.subTest(status=status):
+                data = make_result()
+                data["results"][0]["recency"]["status"] = status
+                with self.assertRaisesRegex(ValueError, "confirmed"):
+                    ex.validate_results(data)
+
+    def test_validation_rejects_undergrad_meets_with_none_found(self):
+        data = make_result()
+        data["results"][0]["group"] = "pending"
+        data["results"][0]["recency"].update(
+            {"status": "none_found", "quote": None, "source": None}
+        )
+        with self.assertRaisesRegex(ValueError, "none_found"):
+            ex.validate_results(data)
+
+    def test_validation_rejects_pending_with_expired_recency(self):
+        data = make_result()
+        data["results"][0]["group"] = "pending"
+        data["results"][0]["recency"]["status"] = "deadline_expired"
+        with self.assertRaisesRegex(ValueError, "pending"):
+            ex.validate_results(data)
+
+    def test_validation_requires_evidence_for_positive_condition(self):
+        data = make_result()
+        data["results"][0]["conditions"]["direction"]["quote"] = None
+        with self.assertRaisesRegex(ValueError, "conditions.direction"):
+            ex.validate_results(data)
+
+    def test_validation_requires_evidence_for_recency_claim(self):
+        data = make_result()
+        data["results"][0]["recency"].update(
+            {"status": "long_term", "quote": None, "source": None}
+        )
+        with self.assertRaisesRegex(ValueError, "recency"):
+            ex.validate_results(data)
+
+    def test_validation_requires_unknowns_array(self):
+        data = make_result()
+        del data["results"][0]["unknowns"]
+        with self.assertRaisesRegex(ValueError, "unknowns"):
+            ex.validate_results(data)
+
+    def test_docx_without_confirmed_reports_zero_confirmed(self):
+        data = make_result()
+        result = data["results"][0]
+        result["group"] = "pending"
+        result["conditions"]["undergrad"].update(
+            {"status": "unknown", "quote": None, "source": None}
+        )
+        result["recency"].update(
+            {"status": "none_found", "quote": None, "source": None}
+        )
+        ex.write_docx(data, str(self.docx_path))
+        with zipfile.ZipFile(self.docx_path) as z:
+            doc = z.read("word/document.xml").decode("utf-8")
+        self.assertIn("本轮没有明确匹配", doc)
+        self.assertIn("不代表已确认机会", doc)
+
+    def test_example_result_is_valid(self):
+        data = json.loads(
+            (ROOT / "assets/example-result.json").read_text(encoding="utf-8")
+        )
+        ex.validate_results(data)
 
     def test_cli_exports_both_formats(self):
         input_path = self.dir / "input.json"

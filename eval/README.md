@@ -27,7 +27,7 @@
 - `grade.status`、`school.status`、`time.status`：`stated` / `not_stated` / `conflict`。
 - `recency.status`：`deadline_open` / `long_term` / `posted_quota_tbd` / `deadline_expired` / `none_found`。
 - `quote`、`source`、`published_at`、`checked_at`：支撑判断的原句、直达页面、发布日期、核查日期。`not_stated` 和 `none_found` 不填原句与来源。
-- `checked_pages`：实际查过的页面；至少包含主页和“我的新闻”列表，避免把“没查”写成“没有”。
+- `checked_pages`：实际查过的页面；至少包含主页和“我的新闻”列表，避免把“没查”写成“没有”。桂小林主页没有“我的新闻”入口，用“科研方向介绍”页补足第二检查页，已在样本中注明。
 
 ## 怎样复测
 

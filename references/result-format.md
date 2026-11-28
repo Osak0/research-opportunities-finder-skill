@@ -20,7 +20,7 @@
    待确认：年级要求、当前名额、每周投入
    来源：标签：URL
 
-（资格待确认组另列，写明缺哪项）
+（找导师时，资格待确认组另列，写明缺哪项；找项目时不列）
 
 覆盖说明：本轮精读 X 位候选，未遍历全目录；失败页面：……；停止原因：……。
 ```
@@ -36,7 +36,7 @@
    取舍：……
    未知信息：……
 
-二、资格待确认
+二、资格待确认（找导师时；找项目时不列）
 1. 姓名 · 学院
    方向依据：……
    待确认：本科生资格/年级/当前名额……
@@ -140,6 +140,8 @@
 | `pending` | 资格待确认 |
 | `lead` | 待核实线索 |
 
+`confirmed` 不得含“明确冲突”的条件，也不得使用 `deadline_expired` 或 `none_found` 作为时效；`deadline_expired` 不进入 `confirmed` 或 `pending`。零个 `confirmed` 时，找导师可保留 `pending` / `lead`；找项目只保留 `confirmed`，不能把 `pending` / `lead` 当成项目结果。两种情况都必须明确说明“明确匹配为 0”，不能把后两组当成已确认机会。
+
 `query.mode`：`information`（信息展示）/ `matching`（匹配模式）。
 
 ## 3. CSV
@@ -149,7 +151,7 @@
 ```text
 name, college, lab, title, direction, topic, undergrad_statement,
 direction_status, undergrad_status, grade_status, school_status, time_status,
-recency_status, unknowns, group, fit_notes, sources, notes,
+recency_status, unknowns, group, fit_notes, recommendation, sources, notes,
 query_mode, coverage_statement, checked_at
 ```
 
@@ -157,6 +159,7 @@ query_mode, coverage_statement, checked_at
 
 - 文件编码 **UTF-8 with BOM（`utf-8-sig`）**，Excel 直接打开不乱码。
 - 列表字段用中文分号 `；` 连接；来源写成 `标签：URL`，多条来源也用 `；` 连接。
+- `query_mode` 显示中文模式标签（`信息展示` / `匹配模式`），不直接写 JSON 枚举。
 - 空结果也写出表头，不生成 0 字节文件。
 - 换行、逗号、引号由 CSV writer 负责转义，不手工拼接。
 
@@ -165,9 +168,10 @@ query_mode, coverage_statement, checked_at
 - 标题：西交大本科科研机会发现结果。
 - 头部：模式、检索条件、核查日期、覆盖说明、停止原因。
 - 按“明确匹配 → 资格待确认 → 待核实线索”分组；组内按本轮顺序。
-- 每条含教师、学院/实验室、职称、方向、课题、本科生招募、条件判断、时效、待确认项、匹配说明、备注、来源。
+- 每条含教师、学院/实验室、职称、方向、课题、本科生招募、条件判断、时效、待确认项、匹配说明、推荐、备注、来源。
+- 检索条件与条件判断使用中文标签（研究方向/本科生资格/年级/校籍/时间），不直接展示 JSON 字段名。
 - 来源写成可点击超链接；URL 原样保留，便于复核。
-- 空结果写“本轮没有明确匹配”，并说明零结果是有效结果；不能生成空白文档。
+- 空结果或没有 `confirmed` 时写“本轮没有明确匹配”，并说明零结果是有效结果；找导师且仍有 `pending` / `lead` 时，注明“以下为资格待确认/待核实线索，不代表已确认机会”。不能生成空白文档。
 
 ## 5. 导出命令
 
@@ -178,4 +182,4 @@ python scripts/export_results.py results.json --out-dir out --formats csv,docx
 - 默认格式 `csv,docx`；只导一种时用 `--formats csv` 或 `--formats docx`。
 - 输出固定为 `out/results.csv`、`out/results.docx`。
 - 只换格式时，输入同一份 `results.json`；不得为导出重新筛选或改写结果。
-- 导出前会运行 `validate_results`：缺 `results`、缺来源、非法 `group` 或状态会直接报错，消息带字段名。
+- 导出前会运行 `validate_results`：缺 `results`、缺来源、缺 `unknowns`、非法 `group` 或状态、肯定判断缺原句/直达页面、`confirmed` 含冲突条件或使用 `deadline_expired`/`none_found` 时效、`pending` 使用 `deadline_expired`、`undergrad` 明确满足却标 `none_found`，都会直接报错，消息带字段名。

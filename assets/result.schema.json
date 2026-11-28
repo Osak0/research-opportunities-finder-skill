@@ -108,7 +108,7 @@
           },
           "group": {
             "enum": ["confirmed", "pending", "lead"],
-            "description": "confirmed=公开依据满足本轮硬条件；pending=方向有依据但资格/时效未知；lead=身份、归属或来源待核实"
+            "description": "confirmed=公开依据满足本轮硬条件且不含明确冲突；pending=方向有依据但资格/时效未知；lead=身份、归属或来源待核实"
           },
           "fit_notes": {
             "type": "string",

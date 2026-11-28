@@ -41,6 +41,15 @@ MODE_LABELS = {
     "information": "信息展示",
     "matching": "匹配模式",
 }
+CONDITION_LABELS = {
+    "direction": "研究方向",
+    "undergrad": "本科生资格",
+    "grade": "年级",
+    "school": "校籍",
+    "time": "时间",
+    "major": "专业",
+    "college": "院系",
+}
 CSV_COLUMNS = [
     "name",
     "college",
@@ -58,6 +67,7 @@ CSV_COLUMNS = [
     "unknowns",
     "group",
     "fit_notes",
+    "recommendation",
     "sources",
     "notes",
     "query_mode",
@@ -114,19 +124,43 @@ def validate_results(data: dict) -> None:
             condition = conditions.get(field)
             if not isinstance(condition, dict) or not condition.get("status"):
                 raise ValueError(f"{prefix}.conditions.{field}: required")
-            if condition["status"] not in STATUS_LABELS:
+            status = condition["status"]
+            if status not in STATUS_LABELS:
                 raise ValueError(
                     f"{prefix}.conditions.{field}.status: must be one of "
                     f"{', '.join(STATUS_LABELS)}"
                 )
+            if status in ("meets", "conflicts"):
+                if not str(condition.get("quote") or "").strip():
+                    raise ValueError(
+                        f"{prefix}.conditions.{field}.quote: required when "
+                        f"status is {status}"
+                    )
+                if not str(condition.get("source") or "").strip():
+                    raise ValueError(
+                        f"{prefix}.conditions.{field}.source: required when "
+                        f"status is {status}"
+                    )
         recency = result.get("recency")
         if not isinstance(recency, dict) or not recency.get("status"):
             raise ValueError(f"{prefix}.recency: required")
-        if recency["status"] not in RECENCY_LABELS:
+        recency_status = recency["status"]
+        if recency_status not in RECENCY_LABELS:
             raise ValueError(
                 f"{prefix}.recency.status: must be one of "
                 f"{', '.join(RECENCY_LABELS)}"
             )
+        if recency_status != "none_found":
+            if not str(recency.get("quote") or "").strip():
+                raise ValueError(
+                    f"{prefix}.recency.quote: required when status is "
+                    f"{recency_status}"
+                )
+            if not str(recency.get("source") or "").strip():
+                raise ValueError(
+                    f"{prefix}.recency.source: required when status is "
+                    f"{recency_status}"
+                )
         sources = result.get("sources")
         if not isinstance(sources, list) or not sources:
             raise ValueError(f"{prefix}.sources: at least one source is required")
@@ -137,8 +171,36 @@ def validate_results(data: dict) -> None:
                 raise ValueError(f"{prefix}.sources[{source_index}].label: required")
             if not str(source.get("url", "")).strip():
                 raise ValueError(f"{prefix}.sources[{source_index}].url: required")
-        if not isinstance(result.get("unknowns", []), list):
-            raise ValueError(f"{prefix}.unknowns: must be an array")
+        if not isinstance(result.get("unknowns"), list):
+            raise ValueError(f"{prefix}.unknowns: required array")
+        group = result["group"]
+        if group == "confirmed":
+            if any(
+                conditions[field]["status"] == "conflicts"
+                for field in CONDITION_FIELDS
+            ):
+                raise ValueError(
+                    f"{prefix}.group: confirmed cannot contain a condition "
+                    "with status conflicts"
+                )
+            if recency_status in ("deadline_expired", "none_found"):
+                raise ValueError(
+                    f"{prefix}.group: confirmed cannot use recency status "
+                    f"{recency_status}"
+                )
+        if group == "pending" and recency_status == "deadline_expired":
+            raise ValueError(
+                f"{prefix}.group: pending cannot use recency status "
+                "deadline_expired"
+            )
+        if (
+            conditions["undergrad"]["status"] == "meets"
+            and recency_status == "none_found"
+        ):
+            raise ValueError(
+                f"{prefix}.recency.status: none_found conflicts with "
+                "undergrad status meets"
+            )
 
 
 def _status_label(result: dict, field: str) -> str:
@@ -173,9 +235,10 @@ def write_csv(data: dict, path: str) -> None:
                 "unknowns": "；".join(result.get("unknowns") or []),
                 "group": GROUP_LABELS[result["group"]],
                 "fit_notes": result.get("fit_notes") or "",
+                "recommendation": result.get("recommendation") or "",
                 "sources": _sources_text(result["sources"]),
                 "notes": result.get("notes") or "",
-                "query_mode": query["mode"],
+                "query_mode": MODE_LABELS[query["mode"]],
                 "coverage_statement": coverage_statement,
                 "checked_at": result.get("checked_at") or query["checked_at"],
             }
@@ -227,7 +290,9 @@ def _build_docx_parts(data: dict) -> dict:
     coverage = query.get("coverage", {})
     conditions = query.get("conditions", {})
     condition_text = "；".join(
-        f"{key}：{value}" for key, value in conditions.items() if str(value).strip()
+        f"{CONDITION_LABELS.get(key, key)}：{value}"
+        for key, value in conditions.items()
+        if value is not None and str(value).strip()
     )
     mode = MODE_LABELS[query["mode"]]
 
@@ -258,6 +323,7 @@ def _build_docx_parts(data: dict) -> dict:
         body.append(_paragraph(_run(f"停止原因：{coverage['stop_reason']}"), 60))
     body.append(_paragraph(_run("", size=10), 40))
 
+    has_confirmed = any(result["group"] == "confirmed" for result in data["results"])
     if not data["results"]:
         body.append(_paragraph(_run("本轮没有明确匹配。", bold=True, size=24), 100))
         body.append(
@@ -265,6 +331,17 @@ def _build_docx_parts(data: dict) -> dict:
                 _run(
                     "零个明确匹配是有效结果；未用相似候选填充。"
                     "可以放宽非硬条件后重新搜索。",
+                    size=21,
+                ),
+                100,
+            )
+        )
+    elif not has_confirmed:
+        body.append(_paragraph(_run("本轮没有明确匹配。", bold=True, size=24), 100))
+        body.append(
+            _paragraph(
+                _run(
+                    "以下为资格待确认/待核实线索，不代表已确认机会。",
                     size=21,
                 ),
                 100,
@@ -294,17 +371,19 @@ def _build_docx_parts(data: dict) -> dict:
                 (
                     "条件判断",
                     "；".join(
-                        f"{field}：{_status_label(result, field)}"
+                        f"{CONDITION_LABELS.get(field, field)}："
+                        f"{_status_label(result, field)}"
                         for field in CONDITION_FIELDS
                     ),
                 ),
                 ("时效", RECENCY_LABELS[result["recency"]["status"]]),
                 ("待确认", "；".join(result.get("unknowns") or [])),
                 ("匹配说明", result.get("fit_notes", "")),
+                ("推荐", result.get("recommendation") or ""),
                 ("备注", result.get("notes", "")),
             ]
             for label, value in details:
-                if str(value).strip():
+                if value is not None and str(value).strip():
                     body.append(
                         _paragraph(
                             _run(f"{label}：", bold=True) + _run(str(value)),
