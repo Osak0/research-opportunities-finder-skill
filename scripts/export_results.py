@@ -312,7 +312,7 @@ def _build_docx_parts(data: dict) -> dict:
         return current
 
     body = []
-    body.append(_paragraph(_run("西交大本科科研机会发现结果", bold=True, size=32), 200))
+    body.append(_paragraph(_run("本科生科研机会发现结果", bold=True, size=32), 200))
     body.append(_paragraph(_run(f"模式：{mode}", bold=True, size=23), 60))
     if condition_text:
         body.append(_paragraph(_run(f"检索条件：{condition_text}"), 60))

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "西交大本科科研机会发现结果",
+  "title": "本科生科研机会发现结果",
   "description": "Skill 内部结果契约。先写这份 JSON，再从同一份 JSON 生成对话列表、CSV 和 DOCX。",
   "type": "object",
   "required": ["query", "results"],
